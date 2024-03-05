@@ -1,4 +1,4 @@
-package project;
+package project.model;
 
 import java.util.Objects;
 
@@ -63,7 +63,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Работник " + id +
+        return "Работник - " + id +
                 ", имя - " + name +
                 ", отдел - " + department +
                 ", зарплата - " + salary;

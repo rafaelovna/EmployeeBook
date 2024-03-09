@@ -3,6 +3,8 @@ package project.service.impl;
 import project.model.Employee;
 import project.service.EmployeeBookService;
 
+import java.util.Arrays;
+
 /**
  * Класс для работы с методами книги сотрудников
  */
@@ -11,7 +13,8 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
     public EmployeeBookServiceImpl() {
     }
 
-    private final Employee[] employees = new Employee[4];
+    private static final Integer EMPLOYEE_SIZE = 4;
+    private final Employee[] employees = new Employee[EMPLOYEE_SIZE];
 
     @Override
     public void validEmployee(Employee employee) {
@@ -226,6 +229,15 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
             if (employee.getName().equals(name)) {
                 employee.setDepartment(department);
             }
+        }
+    }
+
+    @Override
+    public void departmentEmployee() {
+        String department;
+        for (Employee employee : employees) {
+            department = employee.getDepartment();
+            System.out.println("Департамент " + department + ": " + employee);
         }
     }
 }

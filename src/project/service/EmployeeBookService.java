@@ -139,4 +139,10 @@ public interface EmployeeBookService {
      * @param department ввод изменений по депортаменту
      */
     void changeDepartmentEmployee(String name, String department);
+
+
+    /**
+     * Метод для получения сотрудников по отделам
+     */
+    void departmentEmployee();
 }

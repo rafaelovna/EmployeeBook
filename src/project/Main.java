@@ -43,7 +43,8 @@ public class Main {
         employeeBookService.getEmployeeWithSalaryOfMoreThenANumber(10000);
         System.out.println("ФИО всех сотрудников: ");
         employeeBookService.getFullName();
-
+        System.out.println("Метод для получения сотрудников по отделам");
+        employeeBookService.departmentEmployee();
 
     }
 }

@@ -8,7 +8,11 @@ public class Main {
     public static void main(String[] args) {
         EmployeeBookService employeeBookService = new EmployeeBookServiceImpl();
 
-
+        System.out.println("Метод для добавления нового сотрудника");
+        employeeBookService.addNewEmployee("Иван", "2", 55000);
+        employeeBookService.addNewEmployee("Вася", "2", 5500);
+        employeeBookService.addNewEmployee("Петр", "1", 13000);
+        employeeBookService.addNewEmployee("Люся", "1", 60000);
         System.out.println("Список сотрудников: ");
         employeeBookService.getEmployeeInformation();
         System.out.println("Сумма затрат за месяц: ");
@@ -37,5 +41,9 @@ public class Main {
         employeeBookService.getEmployeeWithSalaryOfLessThenANumber(10000);
         System.out.println("Вывод сотрудников с зарплатой больше числа в параметре");
         employeeBookService.getEmployeeWithSalaryOfMoreThenANumber(10000);
+        System.out.println("ФИО всех сотрудников: ");
+        employeeBookService.getFullName();
+
+
     }
 }

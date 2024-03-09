@@ -110,4 +110,33 @@ public interface EmployeeBookService {
      * @param number параметр число
      */
     void getEmployeeWithSalaryOfMoreThenANumber(int number);
+
+
+    /**
+     * Метод для добавления нового сотрудника
+     */
+    void addNewEmployee(String name, String department, int salary);
+
+
+    /**
+     * Метод для удаления сотрудника
+     * @param name параметр имени
+     */
+    void removeEmployee(String name);
+
+
+    /**
+     * Метод для изменения данных по зарплате
+     * @param name поиск по параметру name
+     * @param salary ввод изменений по зарплате
+     */
+    void changeSalaryEmployee(String name, int salary);
+
+
+    /**
+     * Метод для изменения данных по депортаменту
+     * @param name поиск по параметру name
+     * @param department ввод изменений по депортаменту
+     */
+    void changeDepartmentEmployee(String name, String department);
 }

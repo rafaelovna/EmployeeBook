@@ -11,17 +11,12 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
     public EmployeeBookServiceImpl() {
     }
 
-    private final Employee[] employees = {
-            new Employee("Иван", "2", 55000),
-            new Employee("Вася", "2", 5500),
-            new Employee("Петр", "1", 13000),
-            new Employee("Люся", "1", 60000)
-    };
+    private final Employee[] employees = new Employee[4];
 
     @Override
     public void validEmployee(Employee employee) {
         if (employee == null) {
-            throw new NullPointerException("Значение пустое!");
+            System.out.println("Значение пустое");
         }
     }
 
@@ -184,6 +179,52 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
             if (employee.getSalary() >= number) {
                 validEmployee(employee);
                 System.out.println(employee.getId() + ": " + employee.getName() + ", " + employee.getSalary());
+            }
+        }
+    }
+
+    @Override
+    public void addNewEmployee(String name, String department, int salary) {
+        int index = findFreeIndex();
+        if (index == -1) {
+            throw new IndexOutOfBoundsException("Хранилище заполнено. Нельзя создать нового сотрудника");
+        }
+        employees[index] = new Employee(name, department, salary);
+    }
+
+    private int findFreeIndex() {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public void removeEmployee(String name) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getName().equals(name)) {
+                employees[i] = null;
+
+            }
+        }
+    }
+
+    @Override
+    public void changeSalaryEmployee(String name, int salary) {
+        for (Employee employee : employees) {
+            if (employee.getName().equals(name)) {
+                employee.setSalary(salary);
+            }
+        }
+    }
+
+    @Override
+    public void changeDepartmentEmployee(String name, String department) {
+        for (Employee employee : employees) {
+            if (employee.getName().equals(name)) {
+                employee.setDepartment(department);
             }
         }
     }

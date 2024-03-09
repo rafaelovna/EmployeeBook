@@ -6,11 +6,12 @@ import java.util.Objects;
  * СОТРУДНИК
  */
 public class Employee {
-    private static int idGeneration =1;
+    private static int idGeneration = 1;
     private final int id;
     private final String name;
     private String department;
     private int salary;
+
 
     /**
      * @param name ФИО сотрудника
